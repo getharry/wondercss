@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>闭包</title>
+</head>
+<body>
+    <ul>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+        <li>点击一下</li>
+    </ul>
+    <div id="show" style="width: 150px;margin: 0 auto;"></div>
+    <script>
+        var liNode = document.getElementsByTagName('li');
+        var showNode = document.getElementById('show');
+        for (var i = 0; i < liNode.length; i++) {
+            liNode[i].onclick = function(num){
+                return function(){
+                    showNode.innerHTML = '您点击的是第' + num + '个';
+                    console.log(num);
+                }
+            }(i+1)
+        };
+    </script>
+</body>
+</html>
